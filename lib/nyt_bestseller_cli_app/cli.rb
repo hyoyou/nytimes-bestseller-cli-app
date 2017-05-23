@@ -10,6 +10,9 @@ class NytBestsellerCliApp::CLI
   def list_categories
     puts "This week's Best Selling Books:"
     @categories = NytBestsellerCliApp::Category.all
+    @categories.each.with_index(1) do |category, i|
+      puts "#{i}. #{category.name}"
+    end
   end
 
   def menu
@@ -17,18 +20,11 @@ class NytBestsellerCliApp::CLI
     while input != "exit"
       puts "Enter the number of the category you would like to see the top 15 books for or type list to see the categories again or type exit:"
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "Retrieving best seller list for Combined Print & E-Book Fiction"
-      when "2"
-        puts "Retrieving best seller list for Hardcover Fiction"
-      when "3"
-        puts "Retrieving best seller list for Combined Print & E-Book Nonfiction"
-      when "4"
-        puts "Retrieving best seller list for Hardcover Nonfiction"
-      when "5"
-        puts "Retrieving best seller list for Paperback Nonfiction"
-      when "list"
+
+      if input.to_i > 0
+        categories = @categories[input.to_i-1]
+        puts "#{categories.name}"
+      elsif input == "list"
         list_categories
       else
         puts "Please check your input!"

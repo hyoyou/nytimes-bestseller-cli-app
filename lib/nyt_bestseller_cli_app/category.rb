@@ -3,14 +3,11 @@ class NytBestsellerCliApp::Category
 
   def self.all
     #I should return a bunch of instances of Category
-    #puts <<-DOC.gsub /^\s*/, ''
-    #  1. Combined Print & E-Book Fiction
-    #  2. Hardcover Fiction
-    #  3. Combined Print & E-Book Nonfiction
-    #  4. Hardcover Nonfiction
-    #  5. Paperback Nonfiction
-    #DOC
+    self.scrape_categories
+  end
 
+  def self.scrape_categories
+    
     category_1 = self.new
     category_1.name = "Combined Print & E-Book Fiction"
     category_1.url = "https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-fiction/"
