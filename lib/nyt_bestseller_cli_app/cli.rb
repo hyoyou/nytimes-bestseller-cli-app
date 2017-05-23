@@ -21,7 +21,7 @@ class NytBestsellerCliApp::CLI
   def menu
     input = nil
     while input != "exit"
-      puts "Enter the number of the category you would like to see the top 15 books for or type exit:"
+      puts "Enter the number of the category you would like to see the top 15 books for or type list to see the categories again or type exit:"
       input = gets.strip.downcase
       case input
       when "1"
@@ -34,6 +34,10 @@ class NytBestsellerCliApp::CLI
         puts "Retrieving best seller list for Hardcover Nonfiction"
       when "5"
         puts "Retrieving best seller list for Paperback Nonfiction"
+      when "list"
+        list_categories
+      else
+        puts "Please check your input!"
       end
     end
   end
