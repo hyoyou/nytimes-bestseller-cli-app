@@ -2,11 +2,12 @@
 class NytBestsellerCliApp::CLI
 
   def call
-    puts "This week's Best Selling Books:"
     list_categories
+    menu
   end
 
   def list_categories
+    puts "This week's Best Selling Books:"
     puts <<-DOC.gsub /^\s*/, ''
       1. Combined Print & E-Book Fiction
       2. Hardcover Fiction
@@ -16,4 +17,7 @@ class NytBestsellerCliApp::CLI
     DOC
   end
 
+  def menu
+    puts "Enter the number of the category you would like to see the top 15 books for:"
+  end
 end
