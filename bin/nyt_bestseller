@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "Hello World"
+require './lib/nyt_bestseller_cli_app'
+
+NytBestsellerCliApp::CLI.new.call
