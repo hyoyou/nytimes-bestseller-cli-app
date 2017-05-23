@@ -4,6 +4,7 @@ class NytBestsellerCliApp::CLI
   def call
     list_categories
     menu
+    goodbye
   end
 
   def list_categories
@@ -18,6 +19,26 @@ class NytBestsellerCliApp::CLI
   end
 
   def menu
-    puts "Enter the number of the category you would like to see the top 15 books for:"
+    input = nil
+    while input != "exit"
+      puts "Enter the number of the category you would like to see the top 15 books for or type exit:"
+      input = gets.strip.downcase
+      case input
+      when "1"
+        puts "Retrieving best seller list for Combined Print & E-Book Fiction"
+      when "2"
+        puts "Retrieving best seller list for Hardcover Fiction"
+      when "3"
+        puts "Retrieving best seller list for Combined Print & E-Book Nonfiction"
+      when "4"
+        puts "Retrieving best seller list for Hardcover Nonfiction"
+      when "5"
+        puts "Retrieving best seller list for Paperback Nonfiction"
+      end
+    end
+  end
+
+  def goodbye
+    puts "See you next week!"
   end
 end
