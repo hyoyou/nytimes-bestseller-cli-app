@@ -1,5 +1,4 @@
 class NytBestseller::Chart
-  #NytBestsellerCliApp::Chart belongs to NytBestsellerCliApp::Category
 
   def self.scrape_cat1
     doc = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/new-york-times-bestsellers-hardcover-fiction/_/N-1p3r"))
