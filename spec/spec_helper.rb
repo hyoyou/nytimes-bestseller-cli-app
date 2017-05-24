@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "nyt_bestseller_cli_app"
+require "nyt_bestseller"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

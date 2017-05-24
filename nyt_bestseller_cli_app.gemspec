@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'nyt_bestseller_cli_app/version'
+require 'nyt_bestseller/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "nyt_bestseller_cli_app"
-  spec.version       = NytBestsellerCliApp::VERSION
+  spec.name          = "nyt_bestseller"
+  spec.version       = NytBestseller::VERSION
   spec.authors       = ["hyoyou"]
   spec.email         = ["heatherhyou@gmail.com"]
 

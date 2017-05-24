@@ -1,8 +1,8 @@
 require "spec_helper"
 
-RSpec.describe NytBestsellerCliApp do
+RSpec.describe NytBestseller do
   it "has a version number" do
-    expect(NytBestsellerCliApp::VERSION).not_to be nil
+    expect(NytBestseller::VERSION).not_to be nil
   end
 
   it "does something useful" do

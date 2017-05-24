@@ -1,4 +1,4 @@
-class NytBestsellerCliApp::Category
+class NytBestseller::Category
   attr_accessor :name, :url
 
   def self.all
