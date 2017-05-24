@@ -4,7 +4,6 @@ class NytBestseller::CLI
   def call
     list_categories
     menu
-    #goodbye
   end
 
   def list_categories
@@ -20,7 +19,6 @@ class NytBestseller::CLI
     while input != "exit"
       puts "Enter the number of the category you would like to see the top 15 books for or type list to see the categories again or type exit:"
       input = gets.strip.downcase
-
       if input.to_i > 0
         categories = @categories[input.to_i-1]
         puts "#{categories.name}"
