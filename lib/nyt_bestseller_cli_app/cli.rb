@@ -4,7 +4,7 @@ class NytBestsellerCliApp::CLI
   def call
     list_categories
     menu
-    goodbye
+    #goodbye
   end
 
   def list_categories
@@ -26,6 +26,8 @@ class NytBestsellerCliApp::CLI
         puts "#{categories.name}"
       elsif input == "list"
         list_categories
+      elsif input == "exit"
+        goodbye
       else
         puts "Please check your input!"
       end
