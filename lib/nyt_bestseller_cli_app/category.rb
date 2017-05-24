@@ -7,7 +7,8 @@ class NytBestsellerCliApp::Category
   end
 
   def self.scrape_categories
-    
+    categories = []
+
     category_1 = self.new
     category_1.name = "Combined Print & E-Book Fiction"
     category_1.url = "https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-fiction/"
