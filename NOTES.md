@@ -8,11 +8,10 @@ https://www.nytimes.com/books/best-sellers/
 
 Please choose the format/genre you would like to see:
 
-1. Combined Print & E-Book Fiction
-2. Hardcover Fiction
-3. Combined Print & E-Book Nonfiction
-4. Hardcover Nonfiction
-5. Paperback Nonfiction
+1. Hardcover Fiction
+2. Hardcover Nonfiction
+3. Paperback Fiction
+4. Paperback Nonfiction
 
 => 1
 Top 15 Best Sellers
