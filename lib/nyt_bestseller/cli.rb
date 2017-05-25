@@ -13,11 +13,8 @@ class NytBestseller::CLI
   def list_categories
     puts ""
     @categories = NytBestseller::Category.all
-    #@categories.each.with_index(1) do |category, i|
-    #  puts "     #{i}. #{category.name}"
-    #end
     @categories.each do |c|
-      puts "#{c}"
+      puts "     #{c}"
     end
   end
 
@@ -33,7 +30,7 @@ class NytBestseller::CLI
     if input == "Y"
       menu
     else
-      input == "exit"
+      goodbye
     end
   end
 
@@ -58,8 +55,12 @@ class NytBestseller::CLI
     when "4"
       NytBestseller::Chart.scrape_cat4
       list_books
+    when "5"
+      NytBestseller::Chart.scrape_cat4
+      list_books
     when "list"
       list_categories
+      menu
     when "exit"
       goodbye
     else
@@ -69,6 +70,7 @@ class NytBestseller::CLI
   end
 
   def goodbye
+    puts ""
     puts "Come back for an updated list next week!"
   end
 end
