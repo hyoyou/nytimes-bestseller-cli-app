@@ -11,9 +11,11 @@ class NytBestseller::Book
     self.all << self
   end
 
-  #doc = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/the-new-york-times-bestsellers/_/N-1p3n"))
+  doc = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/the-new-york-times-bestsellers/_/N-1p3n"))
+  binding.pry
   #list = doc.css("#listView > li:nth-child(#{i}) > ul > li > div.product-info")
-
+  #hotBooksWithDesc > div.caroufredsel_wrapper
+#book-carousel-1
   def self_new_from_webpage(input)
     self.new(
       #"http://www.barnesandnoble.com/#{#listView > li:nth-child(#{input}) > ul > li > div.product-info > p.product-info-title > a
