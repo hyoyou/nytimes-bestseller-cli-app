@@ -12,7 +12,7 @@ class NytBestseller::Book
   end
 
   doc = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/the-new-york-times-bestsellers/_/N-1p3n"))
-  binding.pry
+  #binding.pry
   #list = doc.css("#listView > li:nth-child(#{i}) > ul > li > div.product-info")
   #hotBooksWithDesc > div.caroufredsel_wrapper
 #book-carousel-1

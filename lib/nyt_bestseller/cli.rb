@@ -12,7 +12,7 @@ class NytBestseller::CLI
 
   def list_categories
     puts ""
-    @categories = NytBestseller::Category.all
+    @categories = NytBestseller::Scraper.all
     @categories.each do |c|
       puts "     #{c}"
     end
@@ -44,19 +44,19 @@ class NytBestseller::CLI
 
     case input
     when "1"
-      NytBestseller::Chart.scrape_cat1
+      NytBestseller::Scraper.scrape_cat1
       list_books
     when "2"
-      NytBestseller::Chart.scrape_cat2
+      NytBestseller::Scraper.scrape_cat2
       list_books
     when "3"
-      NytBestseller::Chart.scrape_cat3
+      NytBestseller::Scraper.scrape_cat3
       list_books
     when "4"
-      NytBestseller::Chart.scrape_cat4
+      NytBestseller::Scraper.scrape_cat4
       list_books
     when "5"
-      NytBestseller::Chart.scrape_cat4
+      NytBestseller::Scraper.scrape_cat4
       list_books
     when "list"
       list_categories
