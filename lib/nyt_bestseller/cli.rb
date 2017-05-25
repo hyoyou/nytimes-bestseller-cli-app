@@ -13,8 +13,11 @@ class NytBestseller::CLI
   def list_categories
     puts ""
     @categories = NytBestseller::Category.all
-    @categories.each.with_index(1) do |category, i|
-      puts "     #{i}. #{category.name}"
+    #@categories.each.with_index(1) do |category, i|
+    #  puts "     #{i}. #{category.name}"
+    #end
+    @categories.each do |c|
+      puts "#{c}"
     end
   end
 
@@ -66,6 +69,6 @@ class NytBestseller::CLI
   end
 
   def goodbye
-    puts "See you next week!"
+    puts "Come back for an updated list next week!"
   end
 end

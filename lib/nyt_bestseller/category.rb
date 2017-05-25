@@ -7,30 +7,17 @@ class NytBestseller::Category
   end
 
   def self.scrape_categories
-    #since categories don't change, may not need to actually scrape it.
+    doc = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/the-new-york-times-bestsellers/_/N-1p3n"))
     categories = []
 
-    category_1 = self.new
-    category_1.name = "Hardcover Fiction"
-    categories << category_1.name
-    #category_1.url = "http://www.barnesandnoble.com/b/new-york-times-bestsellers-hardcover-fiction/_/N-1p3r"
-
-    category_2 = self.new
-    category_2.name = "Hardcover Nonfiction"
-    categories << category_2.name
-    #category_2.url = "http://www.barnesandnoble.com/b/new-york-times-bestsellers-hardcover-nonfiction/_/N-1p5q"
-
-    category_3 = self.new
-    category_3.name = "Paperback Fiction"
-    categories << category_3.name
-    #category_3.url = "http://www.barnesandnoble.com/b/new-york-times-bestsellers-trade-paperback-fiction/_/N-1p3v"
-
-    category_4 = self.new
-    category_4.name = "Paperback Nonfiction"
-    categories << category_4.name
-    #category_4.url = "http://www.barnesandnoble.com/b/new-york-times-bestsellers-paperback-nonfiction/_/N-1p3u"
-
-    [category_1, category_2, category_3, category_4]
+    i = 1
+    while i < 6
+      doc.css("#hotBooksWithDesc > h2").each do |c|
+        categories << "#{i}. " + "#{c.text}"
+        i += 1
+      end
+    end
+    categories
   end
 
 end
