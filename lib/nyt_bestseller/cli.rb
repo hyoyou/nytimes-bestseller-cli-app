@@ -20,9 +20,15 @@ class NytBestseller::CLI
 
   def list_books
     puts ""
-    puts "Would you like to see the list again? Enter Y or N"
+    puts "Would you like to see another book or go back to the categories? Enter Y / N / list"
     input = gets.strip.upcase
     if input == "Y"
+      NytBestseller::Scraper.all
+      NytBestseller::Scraper.get_input
+      NytBestseller::Scraper.get_book
+      list_books
+    elsif input == "LIST"
+      list_categories
       menu
     else
       goodbye
