@@ -1,6 +1,6 @@
-# NytBestsellerCliApp
+# NYTimes Bestseller Cli Application
 
-The NYTimes Bestseller CLI Application will show this week's bestseller list divided into five categories: Hardcover Fiction, Hardcover Nonfiction, Paperback Fiction, Paperback Nonfiction, and Advice and How-To. Within each category's chart, the user is able to select a particular book to access the book and its summary. 
+The NYTimes Bestseller CLI Application will show this week's bestseller list divided into five categories: Hardcover Fiction, Hardcover Nonfiction, Paperback Fiction, Paperback Nonfiction, and Advice and How-To. Within each category's chart, the user is able to select a particular book to access the book and its summary.
 
 ## Installation
 
