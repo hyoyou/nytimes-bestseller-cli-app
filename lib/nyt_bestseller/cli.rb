@@ -20,11 +20,6 @@ class NytBestseller::CLI
 
   def list_books
     puts ""
-    puts "What book would you like more information on?"
-    input = gets.strip
-    book = NytBestseller::Book.find(input.to_i)
-
-    puts ""
     puts "Would you like to see the list again? Enter Y or N"
     input = gets.strip.upcase
     if input == "Y"
