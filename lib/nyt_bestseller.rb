@@ -1,6 +1,6 @@
 require 'open-uri'
 require 'nokogiri'
-require 'pry' #remove before publishing
+require 'pry'
 
 require_relative "./nyt_bestseller/version"
 require_relative "./nyt_bestseller/cli"

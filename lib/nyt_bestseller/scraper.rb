@@ -2,7 +2,6 @@ class NytBestseller::Scraper
   attr_accessor :input, :book, :url, :doc
 
   def self.all
-    #It should return a bunch of instances of Category called in CLI #list_categories
     self.scrape_categories
   end
 

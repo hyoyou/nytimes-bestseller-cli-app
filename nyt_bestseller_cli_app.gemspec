@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["hyoyou"]
   spec.email         = ["heatherhyou@gmail.com"]
 
-  spec.summary       = %q{This CLI app shows this weeks best selling books by category.}
-  spec.description   = %q{The data is scraped from the New York Times website.}
+  spec.summary       = %q{This CLI app shows this week's best selling books by category.}
+  spec.description   = %q{The data is scraped from the Barnes and Noble website.}
   spec.homepage      = "https://github.com/hyoyou/nytimes-bestseller-cli-app"
   spec.license       = "MIT"
 

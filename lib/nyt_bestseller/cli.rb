@@ -1,4 +1,3 @@
-#Our CLI Controller
 class NytBestseller::CLI
   attr_accessor :chart
 
@@ -20,7 +19,7 @@ class NytBestseller::CLI
 
   def list_books
     puts ""
-    puts "Would you like to see another book or go back to the categories? Enter Y / N / list"
+    puts "Would you like to see another book or go back to the categories? Enter Y / N / list:"
     input = gets.strip.upcase
     if input == "Y"
       NytBestseller::Scraper.all
@@ -72,6 +71,6 @@ class NytBestseller::CLI
 
   def goodbye
     puts ""
-    puts "Come back for an updated list next week!"
+    puts "Come back next week for an updated list!"
   end
 end

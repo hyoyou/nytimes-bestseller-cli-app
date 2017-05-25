@@ -1,8 +1,6 @@
 # NytBestsellerCliApp
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nyt_bestseller_cli_app`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The NYTimes Bestseller CLI Application will show this week's bestseller list divided into five categories: Hardcover Fiction, Hardcover Nonfiction, Paperback Fiction, Paperback Nonfiction, and Advice and How-To. Within each category's chart, the user is able to select a particular book to access the book and its summary. 
 
 ## Installation
 
@@ -38,4 +36,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/hyoyou
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
