@@ -11,9 +11,9 @@ class CLI
 
   def list_categories
     puts ""
-    @categories = Scraper.new.all
-    @categories.each do |c|
-      puts "     #{c}"
+    @categories = Category.all
+    @categories.each.with_index(1) do |category, index|
+      puts "     #{index}. #{category}"
     end
   end
 

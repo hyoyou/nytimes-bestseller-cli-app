@@ -1,37 +1,15 @@
+require 'pry'
+
 class Scraper
   attr_accessor :input, :book, :url, :doc
 
-  def all
-    #It should return a bunch of instances of Category called in CLI #list_categories
-    scrape_categories
-  end
 
   def scrape_categories
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers/_/N-1p3n"))
-    #doc = "http://www.barnesandnoble.com/b/the-new-york-times-bestsellers/_/N-1p3n"
 
-    #uri = URI.parse(doc)
-    #tries = 3
-
-    #begin
-    #  uri.open(redirect: false)
-    #rescue OpenURI::HTTPRedirect => redirect
-    #  uri = redirect.uri # assigned from the "Location" response header
-    #  retry if (tries -= 1) > 0
-    #  raise
-    #end
-
-
-    categories = []
-
-    i = 1
-    while i < 6
-      doc.css("#hotBooksWithDesc > h2").each do |c|
-        categories << "#{i}. " + "#{c.text}"
-        i += 1
-      end
+    doc.css("#hotBooksWithDesc > h2").collect do |category|
+      category.text
     end
-    categories
   end
 
   def top_ten(doc)
