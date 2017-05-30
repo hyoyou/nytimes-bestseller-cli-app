@@ -1,4 +1,3 @@
-#Our CLI Controller
 class CLI
   attr_accessor :chart
 
@@ -12,10 +11,7 @@ class CLI
 
   def list_categories
     puts ""
-    @categories = Category.all
-    @categories.each.with_index(1) do |category, index|
-      puts "     #{index}. #{category}"
-    end
+    Category.print_all
   end
 
   def list_books
