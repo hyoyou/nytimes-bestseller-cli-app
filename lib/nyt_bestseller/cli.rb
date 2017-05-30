@@ -1,3 +1,4 @@
+#Our CLI Controller
 class CLI
   attr_accessor :chart
 
@@ -19,12 +20,11 @@ class CLI
 
   def list_books
     puts ""
-    puts "Would you like to see another book or go back to the categories? Enter Y / N / list:"
+    puts "Would you like to see another book? Enter Y / N, or type 'list' to go back to the categories:"
     input = gets.strip.upcase
     if input == "Y"
-      Scraper.new.all
-      Scraper.new.get_input
-      Scraper.new.get_book
+      Scraper.get_input
+      Scraper.get_book
       list_books
     elsif input == "LIST"
       list_categories
@@ -44,19 +44,19 @@ class CLI
 
     case input
     when "1"
-      Scraper.new.scrape_cat1
+      Scraper.scrape_cat1
       list_books
     when "2"
-      Scraper.new.scrape_cat2
+      Scraper.scrape_cat2
       list_books
     when "3"
-      Scraper.new.scrape_cat3
+      Scraper.scrape_cat3
       list_books
     when "4"
-      Scraper.new.scrape_cat4
+      Scraper.scrape_cat4
       list_books
     when "5"
-      Scraper.new.scrape_cat4
+      Scraper.scrape_cat5
       list_books
     when "list"
       list_categories
@@ -71,6 +71,6 @@ class CLI
 
   def goodbye
     puts ""
-    puts "Come back next week for an updated list!"
+    puts "Come back for an updated list next week!"
   end
 end
