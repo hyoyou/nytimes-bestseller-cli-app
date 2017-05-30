@@ -1,7 +1,10 @@
+require 'pry'
+
 class Category
 
   def self.all
     Scraper.scrape_categories
+    binding.pry
   end
 
   def self.print_all

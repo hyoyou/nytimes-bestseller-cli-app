@@ -47,40 +47,54 @@ class Scraper
   end
 
 
-  def self.scrape_cat1 #Hardcover Fiction
-    @doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/new-york-times-bestsellers-hardcover-fiction/_/N-1p3r"))
-    top_ten(@doc)
+  def self.scrape_hfict #Hardcover Fiction
+    hfict = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/new-york-times-bestsellers-hardcover-fiction/_/N-1p3r"))
+    count = 1
+    while count < 11
+      hfict.css("div.product-info").collect do |book|
+        book_info = {
+          :url => "https://www.barnesandnoble.com#{hfict.css("#listView > li:nth-child(#{count}) > ul > li > div.product-image > a:nth-child(1)").attribute("href").value}"
+        }
+
+        book_page = Nokogiri::HTML (open(book_info[:url]))
+        book_info[:title] = book_page.css("#prodSummary > h1").text
+        book_info[:author] = book_page.css("#prodSummary > span > a").first.text
+        book_info[:summary] = book_page.css("#productInfoOverview > div > div > p:nth-child(3)").text.strip
+
+        book_info
+        count += 1
+      end
+      binding.pry
+    end
     get_input
     get_book
   end
 
-  def self.scrape_cat2 #Harcover Nonfiction
+  def self.scrape_hnonfict #Harcover Nonfiction
     @doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/new-york-times-bestsellers-hardcover-nonfiction/_/N-1p5q"))
     top_ten(@doc)
     get_input
     get_book
   end
 
-  def self.scrape_cat3 #Paperback Fiction
+  def self.scrape_pfict #Paperback Fiction
     @doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/new-york-times-bestsellers-trade-paperback-fiction/_/N-1p3v"))
     top_ten(@doc)
     get_input
     get_book
   end
 
-  def self.scrape_cat4 #Paperback Nonfiction
+  def self.scrape_pnonfict #Paperback Nonfiction
     @doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/new-york-times-bestsellers-paperback-nonfiction/_/N-1p3u"))
     top_ten(@doc)
     get_input
     get_book
   end
 
-  def self.scrape_cat5 #Advice and How-To
-    @doc = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/new-york-times-bestsellers-advice-how-to-miscellaneous/_/N-1p3o"))
+  def self.scrape_advice #Advice and How-To
+    @doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/new-york-times-bestsellers-advice-how-to-miscellaneous/_/N-1p3o"))
     top_ten(@doc)
     get_input
     get_book
   end
-
-
 end
