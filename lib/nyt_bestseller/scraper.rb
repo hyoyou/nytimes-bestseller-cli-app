@@ -1,10 +1,12 @@
+require 'pry'
+
 class Scraper
   attr_accessor :input, :book, :url, :doc
 
   def self.scrape_hfict #Hardcover Fiction
     hfict = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/new-york-times-bestsellers-hardcover-fiction/_/N-1p3r", :allow_redirections => :all))
     count = 1
-    while count < 11
+    while count < 16
       book_attributes = []
       hfict.css("div.product-info").collect do |book|
         book_info = {
@@ -12,9 +14,9 @@ class Scraper
         }
 
         book_page = Nokogiri::HTML (open(book_info[:url], :allow_redirections => :all))
-        book_info[:title] = book_page.css("#prodSummary > h1").text
-        book_info[:author] = book_page.css("#prodSummary > span > a").first.text
-        book_info[:summary] = book_page.css("#productInfoOverview > div > div > p:nth-child(3)").text.strip
+        book_info[:title] = book_page.css("h1").text
+        book_info[:author] = book_page.css("span > a").first.text
+        book_info[:summary] = book_page.css("div > div > p:nth-child(3)").text.strip
 
         book_attributes << book_info
         count += 1
@@ -26,7 +28,7 @@ class Scraper
   def self.scrape_hnonfict #Hardcover Nonfiction
     hnonfict = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/new-york-times-bestsellers-hardcover-nonfiction/_/N-1p5q", :allow_redirections => :all))
     count = 1
-    while count < 11
+    while count < 16
       book_attributes = []
       hnonfict.css("div.product-info").collect do |book|
         book_info = {
@@ -34,9 +36,9 @@ class Scraper
         }
 
         book_page = Nokogiri::HTML (open(book_info[:url], :allow_redirections => :all))
-        book_info[:title] = book_page.css("#prodSummary > h1").text
-        book_info[:author] = book_page.css("#prodSummary > span > a").first.text
-        book_info[:summary] = book_page.css("#productInfoOverview > div > div > p:nth-child(3)").text.strip
+        book_info[:title] = book_page.css("h1").text
+        book_info[:author] = book_page.css("span > a").first.text
+        book_info[:summary] = book_page.css("div > div > p:nth-child(3)").text.strip
 
         book_attributes << book_info
         count += 1
@@ -56,9 +58,9 @@ class Scraper
         }
 
         book_page = Nokogiri::HTML (open(book_info[:url], :allow_redirections => :all))
-        book_info[:title] = book_page.css("#prodSummary > h1").text
-        book_info[:author] = book_page.css("#prodSummary > span > a").first.text
-        book_info[:summary] = book_page.css("#productInfoOverview > div > div > p:nth-child(3)").text.strip
+        book_info[:title] = book_page.css("h1").text
+        book_info[:author] = book_page.css("span > a").first.text
+        book_info[:summary] = book_page.css("div > div > p:nth-child(3)").text.strip
 
         book_attributes << book_info
         count += 1
@@ -78,9 +80,9 @@ class Scraper
         }
 
         book_page = Nokogiri::HTML (open(book_info[:url], :allow_redirections => :all))
-        book_info[:title] = book_page.css("#prodSummary > h1").text
-        book_info[:author] = book_page.css("#prodSummary > span > a").first.text
-        book_info[:summary] = book_page.css("#productInfoOverview > div > div > p:nth-child(3)").text.strip
+        book_info[:title] = book_page.css("h1").text
+        book_info[:author] = book_page.css("span > a").first.text
+        book_info[:summary] = book_page.css("div > div > p:nth-child(3)").text.strip
 
         book_attributes << book_info
         count += 1
@@ -100,9 +102,9 @@ class Scraper
         }
 
         book_page = Nokogiri::HTML (open(book_info[:url], :allow_redirections => :all))
-        book_info[:title] = book_page.css("#prodSummary > h1").text
-        book_info[:author] = book_page.css("#prodSummary > span > a").first.text
-        book_info[:summary] = book_page.css("#productInfoOverview > div > div > p:nth-child(3)").text.strip
+        book_info[:title] = book_page.css("h1").text
+        book_info[:author] = book_page.css("span > a").first.text
+        book_info[:summary] = book_page.css("div > div > p:nth-child(3)").text.strip
 
         book_attributes << book_info
         count += 1

@@ -5,9 +5,9 @@ class CLI
     puts ""
     hfict = Category.new("Hardcover Fiction", Scraper.scrape_hfict)
     hnonfict = Category.new("Hardcover Nonfiction", Scraper.scrape_hnonfict)
-    pfict = Category.new("Paperback Fiction", Scraper.scrape_pfict)
-    pnonfict = Category.new("Paperback Nonfiction", Scraper.scrape_pnonfict)
-    advice = Category.new("Advice, How-To and Miscellaneous", Scraper.scrape_advice)
+    #pfict = Category.new("Paperback Fiction", Scraper.scrape_pfict)
+    #pnonfict = Category.new("Paperback Nonfiction", Scraper.scrape_pnonfict)
+    #advice = Category.new("Advice, How-To and Miscellaneous", Scraper.scrape_advice)
     puts "Which format and genre of books would you like to see the bestseller list for?"
     list_categories
     menu
@@ -23,14 +23,11 @@ class CLI
     puts "Enter the number of the category you would like to see or type 'exit'"
     puts "You may also type 'list' to see the list again:"
 
-    @input = gets.strip.downcase
+    @input = gets.strip.upcase
 
     if @input.to_i.between?(1, Category.all.count)
       books_by_category
-    elsif input == "list"
-      list_categories
-      menu
-    elsif input == "exit"
+    elsif @input == "EXIT"
       goodbye
     else
       puts "Please check your input!"
@@ -42,7 +39,7 @@ class CLI
     @the_category = Category.find(@input)
 
     puts ""
-    puts "Top 10 Books in #{@the_category.name}:"
+    puts "Top Books in #{@the_category.name}:"
 
     @the_category.books.each.with_index(1) do |book, index|
       puts "     #{index}.  #{book.title}  by  #{book.author}"
@@ -67,16 +64,15 @@ class CLI
     puts ""
     puts "Would you like to see another book? Enter Y / N, or type 'list' to go back to the categories:"
 
-    input = gets.strip.upcase
-    if input == "Y"
+    @final_input = gets.strip.upcase
+    if @final_input == "Y"
       show_book
-    elsif input == "LIST"
+    elsif @final_input == "LIST"
       list_categories
       menu
     else
       goodbye
     end
-
   end
 
   def goodbye
