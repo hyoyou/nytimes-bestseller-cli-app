@@ -1,10 +1,21 @@
 class CLI
 
   def call
-    puts "Welcome to the NYTimes Bestseller List"
+    puts "           .--.                    .---."
+    puts "       .---|__|    .-.     .-.     |~~~|"
+    puts "    .--|===|--|_   |_|     |_|     |~~~|--."
+    puts "    |  |===|  |.---!~|_.---!~|  .--|   |--|"
+    puts "    |%%|   |  ||===| | |===| |--|%%|   |  |"
+    puts "    |%%|   |  ||   | | |   | |__|  |   |  |"
+    puts "    |  |   |  ||===| | |===| |==|  |   |  |"
+    puts "    |  |   |__||===| | |===| |__|  |~~~|__|"
+    puts "    |  |===|--||===|~| |===|~|--|%%|~~~|--|"
+    puts "    ^--^---'--^ ---^-'-`---^-^--^--^---'--'"
+    puts "Welcome to the New York Times Best Seller List!"
     puts ""
+    puts "Retrieving this week's best seller list:"
     hfict = Category.new("Hardcover Fiction", Scraper.scrape_hfict)
-    hnonfict = Category.new("Hardcover Nonfiction", Scraper.scrape_hnonfict)
+    #hnonfict = Category.new("Hardcover Nonfiction", Scraper.scrape_hnonfict)
     #pfict = Category.new("Paperback Fiction", Scraper.scrape_pfict)
     #pnonfict = Category.new("Paperback Nonfiction", Scraper.scrape_pnonfict)
     #advice = Category.new("Advice, How-To and Miscellaneous", Scraper.scrape_advice)
