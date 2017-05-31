@@ -1,8 +1,4 @@
-require 'pry'
-
 class Scraper
-  attr_accessor :input, :book, :url, :doc
-
   def self.scrape_hfict #Hardcover Fiction
     hfict = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/new-york-times-bestsellers-hardcover-fiction/_/N-1p3r", :allow_redirections => :all))
     count = 1

@@ -1,5 +1,4 @@
 class CLI
-
   def call
     puts "           .--.                    .---."
     puts "       .---|__|    .-.     .-.     |~~~|"
@@ -15,8 +14,8 @@ class CLI
     puts ""
     puts "Retrieving this week's best seller list:"
     hfict = Category.new("Hardcover Fiction", Scraper.scrape_hfict)
-    #hnonfict = Category.new("Hardcover Nonfiction", Scraper.scrape_hnonfict)
-    #pfict = Category.new("Paperback Fiction", Scraper.scrape_pfict)
+    hnonfict = Category.new("Hardcover Nonfiction", Scraper.scrape_hnonfict)
+    pfict = Category.new("Paperback Fiction", Scraper.scrape_pfict)
     #pnonfict = Category.new("Paperback Nonfiction", Scraper.scrape_pnonfict)
     #advice = Category.new("Advice, How-To and Miscellaneous", Scraper.scrape_advice)
     puts "Which format and genre of books would you like to see the bestseller list for?"
