@@ -12,7 +12,7 @@ class Scraper
         book_page = Nokogiri::HTML (open(book_info[:url], :allow_redirections => :all))
         book_info[:title] = book_page.css("h1").text
         book_info[:author] = book_page.css("span > a").first.text
-        book_info[:summary] = book_page.css("div > div > p:nth-child(3)").text.strip
+        book_info[:summary] = book_page.css(".flexColumn").text.strip
 
         book_attributes << book_info
         count += 1
@@ -34,7 +34,7 @@ class Scraper
         book_page = Nokogiri::HTML (open(book_info[:url], :allow_redirections => :all))
         book_info[:title] = book_page.css("h1").text
         book_info[:author] = book_page.css("span > a").first.text
-        book_info[:summary] = book_page.css("div > div > p:nth-child(3)").text.strip
+        book_info[:summary] = book_page.css(".flexColumn").text.strip
 
         book_attributes << book_info
         count += 1
@@ -56,7 +56,7 @@ class Scraper
         book_page = Nokogiri::HTML (open(book_info[:url], :allow_redirections => :all))
         book_info[:title] = book_page.css("h1").text
         book_info[:author] = book_page.css("span > a").first.text
-        book_info[:summary] = book_page.css("div > div > p:nth-child(3)").text.strip
+        book_info[:summary] = book_page.css(".flexColumn").text.strip
 
         book_attributes << book_info
         count += 1
@@ -78,7 +78,7 @@ class Scraper
         book_page = Nokogiri::HTML (open(book_info[:url], :allow_redirections => :all))
         book_info[:title] = book_page.css("h1").text
         book_info[:author] = book_page.css("span > a").first.text
-        book_info[:summary] = book_page.css("div > div > p:nth-child(3)").text.strip
+        book_info[:summary] = book_page.css(".flexColumn").text.strip
 
         book_attributes << book_info
         count += 1
@@ -100,7 +100,7 @@ class Scraper
         book_page = Nokogiri::HTML (open(book_info[:url], :allow_redirections => :all))
         book_info[:title] = book_page.css("h1").text
         book_info[:author] = book_page.css("span > a").first.text
-        book_info[:summary] = book_page.css("div > div > p:nth-child(3)").text.strip
+        book_info[:summary] = book_page.css(".flexColumn").text.strip
 
         book_attributes << book_info
         count += 1
