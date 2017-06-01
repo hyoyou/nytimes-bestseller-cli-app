@@ -22,4 +22,8 @@ class Book
       puts "     #{index}.  #{book.title}  by  #{book.author}"
     end
   end
+
+  def open_in_browser
+    system("open '#{url}'")
+  end
 end

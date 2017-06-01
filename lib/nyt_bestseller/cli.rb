@@ -52,7 +52,7 @@ class CLI
     puts "Top Books in #{@the_category.name}:"
 
     @the_category.books.each.with_index(1) do |book, index|
-      puts "     #{index}.  #{book.title}  by  #{book.author}"
+      puts "     #{index}. #{book.title}  by  #{book.author}"
     end
     show_book
   end
@@ -72,9 +72,16 @@ class CLI
     puts "SYNOPSIS:    #{book.summary}"
 
     puts ""
-    puts "Would you like to see another book? Enter Y / N, or type 'list' to go back to the categories:"
+    puts "Would you like to view this book on the B&N website? Enter Y / N"
+    @browser_input = gets.strip.upcase
 
+    if @browser_input == "Y"
+      book.open_in_browser
+    end
+
+    puts "Would you like to see another book? Enter Y / N, or type 'list' to go back to the categories:"
     @final_input = gets.strip.upcase
+
     if @final_input == "Y"
       show_book
     elsif @final_input == "LIST"

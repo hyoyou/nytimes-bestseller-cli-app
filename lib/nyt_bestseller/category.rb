@@ -3,11 +3,11 @@ class Category
 
   @@all = []
 
-  def initialize(name, book_attributes)
+  def initialize(name, book_array)
     @name = name
 
-    @books = book_attributes.collect do |book_attribute|
-      Book.new(self, book_attribute)
+    @books = book_array.collect do |book_attributes|
+      Book.new(self, book_attributes)
     end
 
     @@all << self
