@@ -17,12 +17,6 @@ class Book
     @@all
   end
 
-  def self.print_all
-    @@all.each.with_index(1) do |book, index|
-      puts "     #{index}.  #{book.title}  by  #{book.author}"
-    end
-  end
-
   def open_in_browser
     system("open '#{url}'")
   end
