@@ -60,8 +60,8 @@ class CLI
     puts ""
     puts "Please type the number of the book you would like more information on:"
 
-    @book_input = gets.strip
-    book = @the_category.find_book(@book_input)
+    book_input = gets.strip
+    book = @the_category.find_book(book_input)
 
     puts ""
     puts "-------------------------------------------------------"
@@ -72,18 +72,18 @@ class CLI
 
     puts ""
     puts "Would you like to view this book on the B&N website? Enter Y / N"
-    @browser_input = gets.strip.upcase
+    browser_input = gets.strip.upcase
 
-    if @browser_input == "Y"
+    if browser_input == "Y"
       book.open_in_browser
     end
 
     puts "Would you like to see another book? Enter Y / N, or type 'list' to go back to the categories:"
-    @final_input = gets.strip.upcase
+    final_input = gets.strip.upcase
 
-    if @final_input == "Y"
+    if final_input == "Y"
       show_book
-    elsif @final_input == "LIST"
+    elsif final_input == "LIST"
       list_categories
       menu
     else
