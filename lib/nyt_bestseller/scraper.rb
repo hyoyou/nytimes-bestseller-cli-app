@@ -3,7 +3,7 @@ class Scraper
     hfict = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/new-york-times-bestsellers-hardcover-fiction/_/N-1p3r", :allow_redirections => :all))
     count = 1
     while count < 16
-      book_attributes = []
+      book_array = []
       hfict.css("div.product-info").collect do |book|
         book_info = {
           :url => "http://www.barnesandnoble.com#{hfict.css("#listView > li:nth-child(#{count}) > ul > li > div.product-image > a:nth-child(1)").attribute("href").value}"
@@ -14,18 +14,18 @@ class Scraper
         book_info[:author] = book_page.css("span > a").first.text
         book_info[:summary] = book_page.css(".flexColumn").text.strip
 
-        book_attributes << book_info
+        book_array << book_info
         count += 1
       end
     end
-    book_attributes
+    book_array
   end
 
   def self.scrape_hnonfict #Hardcover Nonfiction
     hnonfict = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/new-york-times-bestsellers-hardcover-nonfiction/_/N-1p5q", :allow_redirections => :all))
     count = 1
     while count < 16
-      book_attributes = []
+      book_array = []
       hnonfict.css("div.product-info").collect do |book|
         book_info = {
           :url => "http://www.barnesandnoble.com#{hnonfict.css("#listView > li:nth-child(#{count}) > ul > li > div.product-image > a:nth-child(1)").attribute("href").value}"
@@ -36,18 +36,18 @@ class Scraper
         book_info[:author] = book_page.css("span > a").first.text
         book_info[:summary] = book_page.css(".flexColumn").text.strip
 
-        book_attributes << book_info
+        book_array << book_info
         count += 1
       end
     end
-    book_attributes
+    book_array
   end
 
   def self.scrape_pfict #Paperback Fiction
     pfict = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/new-york-times-bestsellers-trade-paperback-fiction/_/N-1p3v", :allow_redirections => :all))
     count = 1
     while count < 11
-      book_attributes = []
+      book_array = []
       pfict.css("div.product-info").collect do |book|
         book_info = {
           :url => "http://www.barnesandnoble.com#{pfict.css("#listView > li:nth-child(#{count}) > ul > li > div.product-image > a:nth-child(1)").attribute("href").value}"
@@ -58,18 +58,18 @@ class Scraper
         book_info[:author] = book_page.css("span > a").first.text
         book_info[:summary] = book_page.css(".flexColumn").text.strip
 
-        book_attributes << book_info
+        book_array << book_info
         count += 1
       end
     end
-    book_attributes
+    book_array
   end
 
   def self.scrape_pnonfict #Paperback Nonfiction
     pnonfict = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/new-york-times-bestsellers-paperback-nonfiction/_/N-1p3u", :allow_redirections => :all))
     count = 1
     while count < 11
-      book_attributes = []
+      book_array = []
       pnonfict.css("div.product-info").collect do |book|
         book_info = {
           :url => "http://www.barnesandnoble.com#{pnonfict.css("#listView > li:nth-child(#{count}) > ul > li > div.product-image > a:nth-child(1)").attribute("href").value}"
@@ -80,18 +80,18 @@ class Scraper
         book_info[:author] = book_page.css("span > a").first.text
         book_info[:summary] = book_page.css(".flexColumn").text.strip
 
-        book_attributes << book_info
+        book_array << book_info
         count += 1
       end
     end
-    book_attributes
+    book_array
   end
 
   def self.scrape_advice #Advice and How-To
     advice = Nokogiri::HTML(open("http://www.barnesandnoble.com/b/new-york-times-bestsellers-advice-how-to-miscellaneous/_/N-1p3o", :allow_redirections => :all))
     count = 1
     while count < 11
-      book_attributes = []
+      book_array = []
       advice.css("div.product-info").collect do |book|
         book_info = {
           :url => "http://www.barnesandnoble.com#{advice.css("#listView > li:nth-child(#{count}) > ul > li > div.product-image > a:nth-child(1)").attribute("href").value}"
@@ -102,10 +102,10 @@ class Scraper
         book_info[:author] = book_page.css("span > a").first.text
         book_info[:summary] = book_page.css(".flexColumn").text.strip
 
-        book_attributes << book_info
+        book_array << book_info
         count += 1
       end
     end
-    book_attributes
+    book_array
   end
 end
