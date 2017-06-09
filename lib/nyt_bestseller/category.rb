@@ -3,14 +3,33 @@ class Category
 
   @@all = []
 
-  def initialize(name, book_array)
+  def initialize(name)
     @name = name
-
-    @books = book_array.collect do |book_attributes|
-      Book.new(self, book_attributes)
-    end
-
     @@all << self
+  end
+
+  def scrape_books
+    if name == "Hardcover Fiction"
+      @books = Scraper.scrape_hfict.collect do |book_attributes|
+        Book.new(self, book_attributes)
+      end
+    elsif name == "Hardcover Nonfiction"
+      @books = Scraper.scrape_hnonfict.collect do |book_attributes|
+        Book.new(self, book_attributes)
+      end
+    elsif name == "Paperback Fiction"
+      @books = Scraper.scrape_pfict.collect do |book_attributes|
+        Book.new(self, book_attributes)
+      end
+    elsif name == "Paperback Nonfiction"
+      @books = Scraper.scrape_pnonfict.collect do |book_attributes|
+        Book.new(self, book_attributes)
+      end
+    else
+      @books = Scraper.scrape_advice.collect do |book_attributes|
+        Book.new(self, book_attributes)
+      end
+    end
   end
 
   def self.all

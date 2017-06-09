@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
+
 require "bundler/setup"
-require "nyt_bestseller"
+require_relative "../lib/nyt_bestseller"
 
 CLI.new.call

@@ -13,11 +13,11 @@ class CLI
     puts "Welcome to the New York Times Best Seller List!"
     puts ""
     puts "Retrieving this week's best seller list:"
-    hfict = Category.new("Hardcover Fiction", Scraper.scrape_hfict)
-    hnonfict = Category.new("Hardcover Nonfiction", Scraper.scrape_hnonfict)
-    pfict = Category.new("Paperback Fiction", Scraper.scrape_pfict)
-    pnonfict = Category.new("Paperback Nonfiction", Scraper.scrape_pnonfict)
-    advice = Category.new("Advice, How-To and Miscellaneous", Scraper.scrape_advice)
+    hfict = Category.new("Hardcover Fiction")
+    hnonfict = Category.new("Hardcover Nonfiction")
+    pfict = Category.new("Paperback Fiction")
+    pnonfict = Category.new("Paperback Nonfiction")
+    advice = Category.new("Advice, How-To and Miscellaneous")
     puts "Which format and genre of books would you like to see the bestseller list for?"
     list_categories
     menu
@@ -31,7 +31,6 @@ class CLI
   def menu
     puts ""
     puts "Enter the number of the category you would like to see or type 'exit':"
-
     @input = gets.strip.upcase
 
     if @input.to_i.between?(1, Category.all.count)
@@ -50,6 +49,7 @@ class CLI
     puts ""
     puts "Top Books in #{@the_category.name}:"
 
+    @the_category.scrape_books
     @the_category.books.each.with_index(1) do |book, index|
       puts "     #{index}. #{book.title}  by  #{book.author}"
     end
@@ -59,8 +59,8 @@ class CLI
   def show_book
     puts ""
     puts "Please type the number of the book you would like more information on:"
-
     book_input = gets.strip
+
     book = @the_category.find_book(book_input)
 
     puts ""
